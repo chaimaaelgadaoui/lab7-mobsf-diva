@@ -44,31 +44,6 @@ Les trois outils étaient opérationnels dès le départ. L'ADB était installé
 Un émulateur avec Google Play embarque des services Google en arrière-plan (Firebase, Play Services) qui génèrent du trafic réseau parasite. Pour l'analyse de sécurité, on veut un environnement propre où seul le trafic de l'application testée est visible. De plus, MobSF nécessite un émulateur rootable, ce qui est impossible avec les images Google Play.
 
 ### Ce que j'ai fait
-
-En ouvrant le **Virtual Device Manager** d'Android Studio, j'ai constaté que j'avais déjà deux émulateurs :
-- **Pixel 7 — API 36** avec Google Play → ❌ incompatible (API trop récente + Play Store présent)
-- **Pixel 5 — API 37** → ❌ incompatible (API trop récente)
-
-![Émulateur Pixel 7 API 36 avec Google Play — incompatible](images/SS-01-emulateur-pixel7-api36.png)
-*L'émulateur Pixel 7 API 36 était incompatible : Google Play visible et API trop récente pour MobSF*
-
-![Pixel 5 API 37 — incompatible](images/SS-02-pixel5-api37.png)
-*Le Pixel 5 existant était en API 37, également incompatible*
-
-J'ai donc créé un nouvel AVD en ciblant **API 30 — Google APIs — x86_64** :
-
-![Sélection du hardware Pixel 5](images/SS-03-pixel5-selection-hardware.png)
-*Sélection du Pixel 5 comme profil hardware*
-
-![System image API 37 par défaut](images/SS-04-system-image-api37.png)
-*Par défaut, Android Studio proposait l'API 37 — il fallait changer le filtre*
-
-![Menu déroulant avec API 30 visible](images/SS-05-dropdown-api30.png)
-*Le menu déroulant montre toutes les APIs disponibles — sélection de API 30 "R" Android 11.0*
-
-![Images API 30 Google APIs disponibles](images/SS-06-images-api30-google-apis.png)
-*Trois images API 30 disponibles, toutes en "Google APIs" (sans Play Store)*
-
 J'ai sélectionné **Google APIs Intel x86_64 Atom System Image — API 30** et téléchargé l'image.
 
 ### Résultat
